@@ -1,0 +1,19 @@
+{
+  "description": "Some clipboard examples",
+  "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/clippy",
+  "manifest_version": 2,
+  "name": "Clippy",
+  "permissions": [
+    "clipboardRead",
+    "clipboardWrite"
+  ],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "version": "1.0",
+  "browser_action": {
+    "browser_style": true,
+    "default_title": "Clippy",
+    "default_popup": "clippy.html"
+  }
+}
