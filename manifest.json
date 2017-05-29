@@ -11,9 +11,11 @@
     "scripts": ["background.js"]
   },
   "version": "1.0",
-  "browser_action": {
-    "browser_style": true,
-    "default_title": "Clippy",
-    "default_popup": "clippy.html"
+  "browser_action": {},
+  "commands": {
+    "paste-shruggie": {
+      "suggested_key": { "default": "Ctrl+Shift+V" },
+      "description": "Paste a shruggie"
+    }
   }
 }

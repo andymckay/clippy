@@ -1,19 +1,25 @@
 let area = document.createElement("textarea");
-document.body.appendChild(area);
 area.contentEditable = true;
+document.body.appendChild(area);
 
-function paste() {
-  area.value = 'arg';
+function get() {
+  area.textContent = '';
   area.select();
-  console.log('Pre-paste: ' + area.value);
-  console.log(document.execCommand("paste"));
-  console.log('Post-paste: ' + area.value);
+  document.execCommand("paste");
+  return area.textContent;
 }
 
-function copy(text) {
-  area.value = text;
+function set(text) {
+  area.textContent = text
   area.select();
-  console.log('Pre-copy: ' + area.value);
-  console.log(document.execCommand("copy"));
-  console.log('Post-copy: ' + area.value);
+  document.execCommand("copy");
+  console.log('set current to:', text);
 }
+
+browser.browserAction.onClicked.addListener(() => {
+  browser.tabs.create({"url": "/clippy.html"});
+});
+
+browser.commands.onCommand.addListener((command) => {
+  browser.runtime.sendMessage(command);
+});

@@ -3,14 +3,25 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="tabs.css"/>
+    <link rel="stylesheet" href="bootstrap.min.css"/>
   </head>
 
 <body>
-  <div class="panel">
-    <a href="#" id="paste">Paste from the clipboard</a>
-    <a href="#" id="copy">Copy to the clipboard</a>
-  </div>
+  <div class="container">
+  <h2>Clipboard example</h2>
+  <p>This shows the use of <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/execCommand">document.execCommand</a>. It requires <b>extensions.webextensions.remote</b> to be set to <b>true</b>.</p>
+  <form id="formsy">
+    <p>Enter some text to set the clipboard.</p>
+    <div class="form-group">
+      <input type="text" class="form-control" id="clipboard-input" placeholder="Some text to set to the clipboard">
+    </div>
+    <button type="submit" class="btn btn-default">Set</button>
+  </form>
+  <hr>
+  <h3>Clipboard contents</h3>
+  <p id="output">
+  <p><a href="#" id="get" class="btn btn-success">Get clipboard contents</a></p>
+
 
   <script src="clippy.js"></script>
 </body>
