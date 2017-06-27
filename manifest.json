@@ -14,8 +14,14 @@
   "browser_action": {},
   "commands": {
     "paste-shruggie": {
-      "suggested_key": { "default": "Ctrl+Shift+V" },
+      "suggested_key": { "default": "Ctrl+Shift+O", "mac": "Command+Shift+O" },
       "description": "Paste a shruggie"
     }
-  }
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["clippy-content.js"]
+    }
+  ]
 }

@@ -15,17 +15,6 @@ document.getElementById('formsy').addEventListener('submit', function(e) {
   e.preventDefault();
 });
 
-var doCommand = function(command) {
-  if (command === 'paste-shruggie') {
-    let current = backgroundPage.get();
-    backgroundPage.set("¯\_(ツ)_/¯");
-    document.execCommand("paste");  // currently returns false
-    backgroundPage.set(current);
-  }
-};
-
 window.addEventListener('load', function(e) {
   showContents();
 });
-
-browser.runtime.onMessage.addListener(doCommand);

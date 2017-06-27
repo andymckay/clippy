@@ -13,7 +13,6 @@ function set(text) {
   area.textContent = text
   area.select();
   document.execCommand("copy");
-  console.log('set current to:', text);
 }
 
 browser.browserAction.onClicked.addListener(() => {
@@ -21,5 +20,8 @@ browser.browserAction.onClicked.addListener(() => {
 });
 
 browser.commands.onCommand.addListener((command) => {
-  browser.runtime.sendMessage(command);
+  console.log('sending message');
+  browser.tabs.query({active: true, currentWindow: true}, function(tabs){
+    chrome.tabs.sendMessage(tabs[0].id, command);
+  });
 });
